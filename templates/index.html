@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="PDF Tool Logo">
+            <h1>PDF Toolkit</h1>
+        </div>
+
+        <h2>Merge PDFs</h2>
+        <form action="/merge" method="post" enctype="multipart/form-data">
+            <input type="file" name="pdfs" multiple accept=".pdf" required>
+            <button type="submit">Merge</button>
+        </form>
+
+        <hr>
+
+        <h2>Split PDF</h2>
+        <form action="/split" method="post" enctype="multipart/form-data">
+            <input type="file" name="pdf" accept=".pdf" required>
+            <label for="start">Start Page:</label>
+            <input type="number" name="start" min="1" required>
+            <label for="end">End Page:</label>
+            <input type="number" name="end" min="1" required>
+            <button type="submit">Split</button>
+        </form>
+    </div>
+</body>
+</html>
